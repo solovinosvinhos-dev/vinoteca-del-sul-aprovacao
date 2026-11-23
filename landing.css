@@ -1,0 +1,435 @@
+.v-letter {
+  --ruby: #661c32;
+  --wine-ink: #481724;
+  --gold: #ddbc7e;
+  --bronze: #9d7642;
+  --paper: #fffbf4;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  min-height: 100svh;
+  padding: 0 clamp(1rem, 4.3vw, 5rem);
+  background: linear-gradient(145deg, #310e1b 0%, var(--ruby) 60%, #470f23 100%);
+  color: var(--paper);
+  font-family: var(--serif);
+}
+.v-letter ::selection {
+  background: #edd4aa;
+  color: var(--wine-ink);
+}
+.v-letter :is(a, section):focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+.v-letter .v-skip {
+  position: absolute;
+  left: 1rem;
+  top: -6rem;
+  z-index: 3;
+  padding: 0.6rem 1rem;
+  background: var(--paper);
+  color: var(--wine-ink);
+}
+.v-letter .v-skip:focus {
+  top: 1rem;
+}
+.v-mast,
+.v-book,
+.v-colophon {
+  max-width: 96rem;
+  margin-inline: auto;
+}
+.v-mast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: clamp(1rem, 2.7vw, 2.4rem);
+}
+.v-signature,
+.v-social,
+.v-turn,
+.v-address a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.v-signature {
+  font-size: clamp(1.65rem, 3vw, 3.2rem);
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+.v-signature img {
+  width: clamp(2.3rem, 3.5vw, 3.4rem);
+  mix-blend-mode: screen;
+}
+.v-social {
+  font-size: 1.15rem;
+  padding: 0.45rem 0 0.45rem 1rem;
+  border-left: 1px solid var(--gold);
+}
+.v-social svg,
+.v-address svg,
+.v-turn svg,
+.v-index nav svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  stroke-width: 1.4;
+  flex: none;
+}
+.v-book {
+  display: grid;
+  grid-template-columns: 34% 44% 22%;
+  color: var(--wine-ink);
+  background: var(--paper);
+  box-shadow: 0 1.3rem 2.5rem #23081060;
+  position: relative;
+}
+.v-index,
+.v-pages,
+.v-plate {
+  position: relative;
+  min-width: 0;
+}
+.v-index {
+  padding: clamp(1.6rem, 3.6vw, 4.2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: linear-gradient(92deg, #faf4e9, #fffaf3 82%, #eee6d7);
+}
+.v-seal {
+  width: clamp(2.4rem, 4.2vw, 4rem);
+  height: auto;
+  border-radius: 50%;
+  padding: 2px;
+  border: 1px solid var(--bronze);
+}
+.v-index h1 {
+  font-family: var(--serif);
+  font-size: clamp(3.6rem, 6.45vw, 7rem);
+  font-weight: 500;
+  line-height: 0.88;
+  letter-spacing: -0.038em;
+  margin: clamp(1.5rem, 4vw, 4.5rem) 0;
+}
+.v-index h1 em {
+  display: block;
+  font-weight: 500;
+}
+.v-index nav {
+  margin-top: auto;
+  width: 100%;
+  border-top: 1px solid var(--bronze);
+}
+.v-index nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.46em 0;
+  border-bottom: 1px solid #beab93;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1.2;
+}
+.v-index nav svg {
+  color: var(--bronze);
+}
+.v-book:not(:has(#sao-paulo:target, #contato:target)) a[href="#a-casa"]:first-child,
+.v-book:has(#sao-paulo:target) nav a[href="#sao-paulo"],
+.v-book:has(#contato:target) nav a[href="#contato"] {
+  box-shadow: inset 0 -2px var(--bronze);
+  font-weight: 700;
+}
+.v-pages {
+  background: linear-gradient(
+    90deg,
+    #d5c9b9 0%,
+    #f5eee3 1.2%,
+    var(--paper) 5%,
+    var(--paper) 94%,
+    #f2ecdf 100%
+  );
+}
+.v-pages section {
+  padding: clamp(1.8rem, 3.6vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: clamp(35rem, 44vw, 45rem);
+  scroll-margin-top: 6rem;
+}
+.v-pages section:not(:first-child) {
+  display: none;
+}
+.v-pages:has(section:not(:first-child):target) section:first-child {
+  display: none;
+}
+.v-pages section:target {
+  display: flex;
+}
+.v-pages h2 {
+  width: 100%;
+  border-bottom: 1px solid var(--bronze);
+  padding-bottom: 0.18em;
+  margin-bottom: 0.24em;
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(3.1rem, 6.6vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+.v-pages p {
+  font-size: clamp(1.35rem, 2.05vw, 2.1rem);
+  line-height: 1.16;
+  max-width: 32ch;
+}
+.v-pages p + p {
+  margin-top: 0.65em;
+  max-width: 46ch;
+  font-size: clamp(1.2rem, 1.55vw, 1.55rem);
+  line-height: 1.35;
+}
+.v-tool {
+  width: auto;
+  height: clamp(9.5rem, 13vw, 15rem);
+  align-self: center;
+  object-fit: contain;
+  margin: 0.5rem auto;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) sepia(0.8) brightness(1.2) contrast(1.08);
+}
+.v-turn {
+  margin-top: auto;
+  min-height: 44px;
+  justify-content: space-between;
+  gap: 1.5rem;
+  font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  line-height: 1.25;
+  border-bottom: 1px solid var(--bronze);
+}
+.v-turn svg {
+  color: var(--bronze);
+}
+.v-photo {
+  width: 100%;
+  height: clamp(9rem, 15vw, 17rem);
+  object-fit: cover;
+  object-position: center 60%;
+  margin-block: 1.3rem;
+}
+.v-address {
+  width: 100%;
+  margin: 2rem 0;
+}
+.v-address a {
+  padding: 1rem 0;
+  border-block-end: 1px solid #cfbfa9;
+  font-size: 1.6rem;
+  line-height: 1.1;
+}
+.v-address small {
+  display: block;
+  margin-top: 0.4rem;
+  font:
+    0.9rem/1.3 system-ui,
+    sans-serif;
+}
+.v-plate {
+  overflow: hidden;
+  background: linear-gradient(95deg, #ded3c3 0%, #fcf6ea 6%, #fffbf4 68%, #f0e7d8 100%);
+}
+.v-plate img {
+  position: absolute;
+  width: 145%;
+  max-width: none;
+  height: 98%;
+  top: 1%;
+  left: -26%;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: grayscale(1) sepia(0.8) brightness(1.2) contrast(1.08);
+}
+.v-colophon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  padding: clamp(1.5rem, 3vw, 3rem) 0;
+  font-size: clamp(1.05rem, 1.6vw, 1.5rem);
+  font-style: italic;
+}
+.v-colophon::before,
+.v-colophon::after {
+  content: "";
+  height: 1px;
+  width: clamp(1rem, 7vw, 8rem);
+  background: var(--gold);
+}
+.v-letter a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.19em;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .v-pages[data-unfold] {
+    --fold-start: rotateY(73deg);
+    --fold-hinge: left center;
+    --fold-light: 90deg;
+    overflow: clip;
+  }
+  .v-pages[data-unfold] section {
+    position: relative;
+    transform-origin: var(--fold-hinge);
+    animation: v-unfold 650ms cubic-bezier(0.19, 0.72, 0.22, 1);
+  }
+  .v-pages[data-unfold] section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(var(--fold-light), #78533152, #e5cc9d38 34%, transparent 72%);
+    opacity: 0;
+    animation: v-fold-light 650ms ease-out;
+  }
+  @keyframes v-unfold {
+    from,
+    to {
+      background: inherit;
+    }
+    from {
+      transform: perspective(1100px) var(--fold-start);
+      box-shadow: 0 0.7rem 1.2rem #48261840;
+    }
+    to {
+      transform: perspective(1100px) rotate3d(0, 1, 0, 0deg);
+      box-shadow: 0 0 0 transparent;
+    }
+  }
+  @keyframes v-fold-light {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+@media (max-width: 900px) and (min-width: 681px) {
+  .v-book {
+    grid-template-columns: 34% 48% 18%;
+  }
+  .v-index,
+  .v-pages section {
+    padding: 1.65rem;
+  }
+  .v-index h1 {
+    font-size: clamp(3.1rem, 6.2vw, 4.3rem);
+  }
+}
+@media (min-width: 681px) {
+  .v-pages section {
+    padding-inline: clamp(1.65rem, 2.85vw, 3.5rem);
+  }
+  .v-pages h2 {
+    margin-bottom: 0.32em;
+  }
+  .v-pages p {
+    max-width: 38ch;
+    font-size: clamp(1.35rem, 1.85vw, 1.85rem);
+    line-height: 1.3;
+    text-wrap: pretty;
+  }
+  .v-pages p + p {
+    margin-top: 0.9em;
+    max-width: 48ch;
+    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
+    line-height: 1.45;
+  }
+}
+@media (max-width: 680px) {
+  .v-letter {
+    padding-inline: 0.85rem;
+  }
+  .v-mast {
+    padding: 1rem 0.25rem;
+  }
+  .v-social {
+    font-size: 1rem;
+    gap: 0.35rem;
+    padding-left: 0.65rem;
+  }
+  .v-book {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .v-index {
+    isolation: isolate;
+    overflow: hidden;
+    padding: 1.4rem 1.25rem 0.8rem;
+    background: linear-gradient(178deg, #fffaf2 80%, #eae0d1);
+  }
+  .v-index::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -7%;
+    top: -13%;
+    width: 43%;
+    height: 85%;
+    background: url("./videira.webp") center/contain no-repeat;
+    mix-blend-mode: multiply;
+    filter: grayscale(1) sepia(0.8) brightness(1.2) contrast(1.08);
+    opacity: 0.64;
+  }
+  .v-seal {
+    display: none;
+  }
+  .v-index h1 {
+    max-width: 76%;
+    font-size: clamp(2.7rem, 9.8vw, 4.3rem);
+    margin: 0 0 1.3rem;
+  }
+  .v-index nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .v-index nav a {
+    font-size: 1.15rem;
+    border: 0;
+  }
+  .v-index nav svg {
+    display: none;
+  }
+  .v-pages {
+    background: linear-gradient(180deg, #d8cbb8 0%, var(--paper) 2.2%);
+  }
+  .v-pages[data-unfold] {
+    --fold-start: rotateX(-78deg);
+    --fold-hinge: center top;
+    --fold-light: 180deg;
+  }
+  .v-pages section {
+    padding: 1.5rem 1.25rem;
+    min-height: 27.5rem;
+    scroll-margin-top: 0.75rem;
+  }
+  .v-pages h2 {
+    font-size: 3.3rem;
+  }
+  .v-pages p {
+    font-size: 1.35rem;
+    line-height: 1.35;
+    text-wrap: pretty;
+  }
+  .v-pages p + p {
+    margin-top: 0.85em;
+    font-size: 1.25rem;
+    line-height: 1.45;
+  }
+  .v-tool {
+    height: 8.5rem;
+  }
+  .v-plate {
+    display: none;
+  }
+}
