@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>À mesa · Vinoteca del Sul</title>
+    <link rel="icon" href="recursos/perfil.jpg" />
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="cadastro.js" defer></script>
+  </head>
+  <body class="mesa">
+    <header class="mast">
+      <a class="brand" href="index.html" aria-label="Vinoteca del Sul, comparar opções"
+        ><img src="recursos/perfil.jpg" width="37" height="37" alt="" /><span
+          >Vinoteca <i>del Sul</i></span
+        ></a
+      ><a class="compare" href="index.html">Comparar opções</a>
+    </header>
+    <main class="mesa-main">
+      <div class="scene">
+        <img src="recursos/mesa-posta.webp" alt="Duas taças de vinho à luz da tarde" />
+        <div class="scene-copy">
+          <h1>Um lugar <br />à <em>mesa.</em></h1>
+          <p>
+            As ofertas da nossa adega, escolhidas para quem gosta de descobrir um vinho novo em São
+            Paulo.
+          </p>
+          <a class="intro-link" href="#cadastro"
+            >Conhecer a lista VIP <span aria-hidden="true">↘</span></a
+          >
+        </div>
+      </div>
+      <div class="desk">
+        <section class="register" id="cadastro" aria-labelledby="ft">
+          <form method="dialog" data-steps="false">
+            <h2 id="ft">Entre na lista VIP</h2>
+            <p class="form-deck">Cadastre-se para acompanhar as ofertas da Vinoteca.</p>
+            <div class="fields" data-contact>
+              <label>Nome completo<input required autocomplete="name" maxlength="120" /></label
+              ><label
+                >E-mail<input required type="email" autocomplete="email" maxlength="254" /></label
+              ><label
+                >WhatsApp<span class="phone"
+                  ><span>+55</span
+                  ><input
+                    required
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel-national"
+                    pattern="\(?[1-9][0-9]\)?[ .-]?[0-9]{4,5}[ .-]?[0-9]{4}"
+                    title="Informe o DDD e o número, por exemplo (11) 99999-9999" /></span
+              ></label>
+            </div>
+            <fieldset data-channels>
+              <legend>Onde quer receber as ofertas?</legend>
+              <label><input type="checkbox" /> Pelo WhatsApp</label
+              ><label><input type="checkbox" /> Por e-mail</label
+              ><small>Escolhas opcionais. Você pode cancelar quando quiser.</small>
+            </fieldset>
+            <div class="actions">
+              <button class="action submit" type="submit">
+                Entrar na lista VIP <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <p class="demo">Prévia de layout · Use dados fictícios. O envio é simulado.</p>
+          </form>
+          <div class="receipt" role="status" tabindex="-1" hidden>
+            <h2>Cadastro simulado.</h2>
+            <p>Na versão final, a confirmação aparecerá depois que o CRM receber o cadastro.</p>
+            <button type="button" class="action restart">
+              Testar novamente <span aria-hidden="true">↺</span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <aside class="benefits">
+      <h2>Na lista da casa</h2>
+      <p>Ofertas de rótulos selecionados</p>
+      <p>Novidades da adega</p>
+      <p>Contato pelo canal que você escolher</p>
+    </aside>
+    <footer>
+      <span>Atendimento exclusivo em São Paulo</span>
+      <div>
+        <a href="https://wa.me/5511956586000">WhatsApp</a
+        ><a href="https://www.instagram.com/vinotecadelsul/">Instagram</a>
+      </div>
+    </footer>
+  </body>
+</html>
