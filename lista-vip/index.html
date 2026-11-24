@@ -2,50 +2,257 @@
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="robots" content="noindex,nofollow" />
-    <title>Escolha o layout · Vinoteca del Sul</title>
-    <link rel="icon" href="recursos/perfil.jpg" />
-    <link rel="stylesheet" href="estilo.css" />
-    <script src="cadastro.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Lista VIP · Vinoteca del Sul</title>
+    <meta
+      name="description"
+      content="Receba ofertas e novidades da lista VIP da Vinoteca del Sul."
+    />
+    <link rel="icon" href="recursos/perfil.jpg" type="image/jpeg" />
+    <link rel="stylesheet" href="rubi.css" />
+    <script src="rubi.js" defer></script>
   </head>
-  <body class="gallery">
-    <header class="mast">
-      <a class="brand" href="index.html" aria-label="Vinoteca del Sul, comparar opções"
-        ><img src="recursos/perfil.jpg" width="37" height="37" alt="" /><span
-          >Vinoteca <i>del Sul</i></span
-        ></a
-      ><span class="locale">São Paulo</span>
+  <body>
+    <a class="skip-link" href="#cadastro">Ir para o cadastro</a>
+
+    <header class="masthead wrap">
+      <a class="brand" href="#inicio" aria-label="Vinoteca del Sul, início">
+        <img src="recursos/perfil.jpg" width="38" height="38" alt="" />
+        <span>Vinoteca <i>del Sul</i></span>
+      </a>
+      <a class="mast-link" href="https://www.instagram.com/vinotecadelsul/">Instagram</a>
     </header>
-    <main>
-      <div class="gallery-head">
-        <h1>A lista VIP <em>da Vinoteca.</em></h1>
-        <p>Escolha a apresentação do cadastro. Abra cada opção para experimentar o formulário.</p>
-      </div>
-      <div class="options">
-        <a class="option mesa-option" href="mesa.html"
-          ><img src="recursos/previa-mesa.jpg" alt="Prévia do layout À mesa" />
+
+    <main id="inicio">
+      <section class="hero wrap" aria-labelledby="titulo">
+        <div class="hero-copy">
+          <span class="rule" aria-hidden="true"></span>
+          <h1 id="titulo">Um convite<br /><em>da Vinoteca.</em></h1>
+          <p>
+            Para quem está em São Paulo e gosta de escolher com calma. Entre na nossa lista VIP para
+            acompanhar os rótulos que chegam e as ofertas da casa.
+          </p>
+          <a class="text-link" href="#cadastro"
+            >Conhecer a lista VIP <span aria-hidden="true">↓</span></a
+          >
+          <img class="hero-vine" src="recursos/videira.webp" alt="" />
+        </div>
+
+        <section class="form-card" id="cadastro" aria-labelledby="form-titulo">
+          <div class="form-steps" aria-label="Etapas do cadastro">
+            <span id="passo1" aria-current="step">1. Seus dados</span>
+            <span id="passo2">2. Preferências</span>
+          </div>
+
+          <form id="vip" method="post" action="/api/lista-vip" novalidate>
+            <fieldset id="dados" disabled>
+              <legend id="form-titulo">Seu convite</legend>
+              <p id="form-descricao">Estamos preparando o cadastro seguro da lista VIP.</p>
+              <label>
+                Nome completo
+                <input name="name" autocomplete="name" maxlength="120" required />
+              </label>
+              <label>
+                E-mail
+                <input name="email" type="email" autocomplete="email" maxlength="254" required />
+              </label>
+              <label>
+                WhatsApp
+                <span class="phone"
+                  ><b>+55</b
+                  ><input
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel-national"
+                    inputmode="tel"
+                    placeholder="(11) 99999-9999"
+                    required
+                /></span>
+              </label>
+              <label class="honeypot" aria-hidden="true">
+                Deixe este campo em branco
+                <input name="website" tabindex="-1" autocomplete="off" />
+              </label>
+            </fieldset>
+
+            <fieldset id="canais" hidden>
+              <legend>Como prefere receber a lista?</legend>
+              <p class="form-copy">
+                Você escolhe os canais e pode retirar a autorização pelo WhatsApp da Vinoteca.
+              </p>
+              <label class="choice"
+                ><input name="whatsapp_opt_in" type="checkbox" /> Ofertas e novidades pelo
+                WhatsApp</label
+              >
+              <label class="choice"
+                ><input name="email_opt_in" type="checkbox" /> Ofertas e novidades por e-mail</label
+              >
+            </fieldset>
+
+            <p id="form-estado" role="status" aria-live="polite"></p>
+            <div class="form-actions">
+              <button id="voltar" class="back" type="button" hidden>Voltar</button>
+              <button id="avancar" class="action" type="button" disabled>
+                Escolher canais <span aria-hidden="true">→</span>
+              </button>
+              <button id="enviar" class="action" type="submit" hidden disabled>
+                Entrar na lista VIP <span aria-hidden="true">→</span>
+              </button>
+            </div>
+            <p id="modo" class="mode-note">Inicializando cadastro…</p>
+            <noscript
+              ><p class="mode-note">
+                O cadastro precisa de JavaScript para proteger seus dados. Fale com a Vinoteca pelo
+                WhatsApp.
+              </p></noscript
+            >
+          </form>
+
+          <section
+            id="confirmacao"
+            class="confirmation"
+            hidden
+            tabindex="-1"
+            aria-labelledby="confirmacao-titulo"
+          >
+            <h2 id="confirmacao-titulo">Recebemos seu interesse.</h2>
+            <p id="confirmacao-texto">
+              Vamos confirmar seu cadastro assim que a lista estiver disponível.
+            </p>
+            <button class="action" type="button" data-restart>
+              Preencher novamente <span aria-hidden="true">↺</span>
+            </button>
+          </section>
+        </section>
+      </section>
+
+      <section class="benefits">
+        <div class="wrap">
+          <header class="section-heading">
+            <span class="rule" aria-hidden="true"></span>
+            <h2>Uma lista para continuar <em>a conversa.</em></h2>
+            <p>
+              A lista VIP não é uma prateleira infinita. É uma forma de aproximar você daquilo que
+              estamos olhando com mais atenção na adega.
+            </p>
+          </header>
+          <div class="benefit-grid">
+            <article>
+              <span>01</span>
+              <h3>Rótulos que chegam</h3>
+              <p>
+                Novos vinhos da nossa seleção para acompanhar antes de escolher a sua próxima
+                garrafa.
+              </p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>Ofertas da casa</h3>
+              <p>
+                Condições compartilhadas com a lista VIP, quando uma seleção pede para ser
+                descoberta.
+              </p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>O seu canal</h3>
+              <p>Você decide se quer receber notícias por WhatsApp, e-mail ou pelos dois.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="selection wrap" aria-labelledby="selecao-titulo">
+        <figure>
+          <img src="recursos/mesa-posta.webp" alt="Duas taças de vinho servidas à luz da tarde" />
+        </figure>
+        <div class="selection-copy">
+          <span class="rule" aria-hidden="true"></span>
+          <h2 id="selecao-titulo">Escolhas que começam <em>na origem.</em></h2>
+          <p>
+            Na Vinoteca, cada rótulo entra por uma razão. Olhamos para a uva, o lugar e o trabalho
+            de quem fez o vinho. Depois, pensamos na mesa onde ele pode encontrar companhia.
+          </p>
+          <p>A lista VIP leva esse olhar até você, com o tempo que uma boa escolha merece.</p>
+        </div>
+      </section>
+
+      <section class="city">
+        <div class="wrap city-inner">
+          <img src="recursos/garrafa-e-taca.webp" alt="" />
           <div>
-            <h2>À mesa</h2>
-            <p>Fotografia e convite à esquerda. Cadastro completo ao lado.</p>
-            <span>Experimentar layout <b aria-hidden="true">↗</b></span>
-          </div></a
-        ><a class="option caderno-option" href="caderno.html"
-          ><img src="recursos/previa-caderno.jpg" alt="Prévia do layout Caderno de adega" />
-          <div>
-            <h2>Caderno de adega</h2>
-            <p>Uma página editorial em papel claro, com ficha de cadastro horizontal.</p>
-            <span>Experimentar layout <b aria-hidden="true">↗</b></span>
-          </div></a
-        ><a class="option convite-option" href="convite.html"
-          ><img src="recursos/previa-convite.jpg" alt="Prévia do layout Convite rubi" />
-          <div>
-            <h2>Convite rubi</h2>
-            <p>Um convite em rubi com cadastro em duas etapas e escolha de canais no fim.</p>
-            <span>Experimentar layout <b aria-hidden="true">↗</b></span>
-          </div></a
-        >
-      </div>
+            <span class="rule" aria-hidden="true"></span>
+            <h2>Feita para as mesas <em>de São Paulo.</em></h2>
+            <p>
+              Atendemos exclusivamente em São Paulo. Se você quiser conversar sobre uma escolha ou
+              tirar uma dúvida, a Vinoteca está a uma mensagem de distância.
+            </p>
+            <a class="text-link" href="https://wa.me/5511956586000"
+              >Falar com a Vinoteca <span aria-hidden="true">→</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="closing wrap">
+        <span class="rule" aria-hidden="true"></span>
+        <h2>Quando quiser, <em>a lista é sua.</em></h2>
+        <p>Entre para receber as novidades da casa ou escreva para a Vinoteca pelo WhatsApp.</p>
+        <a class="action" href="#cadastro">Entrar na lista VIP <span aria-hidden="true">↑</span></a>
+      </section>
     </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="#inicio"
+          ><img src="recursos/perfil.jpg" width="34" height="34" alt="" /><span
+            >Vinoteca <i>del Sul</i></span
+          ></a
+        >
+        <span>Atendimento exclusivo em São Paulo</span>
+        <div>
+          <a href="https://wa.me/5511956586000">WhatsApp</a
+          ><a href="https://www.instagram.com/vinotecadelsul/">Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="whatsapp">
+      <section id="wa-painel" class="wa-panel" hidden aria-label="Mensagem da Vinoteca">
+        <button id="wa-fechar" class="wa-close" type="button" aria-label="Fechar mensagem">
+          ×
+        </button>
+        <p class="wa-from">Vinoteca del Sul</p>
+        <p>
+          Olá! A lista VIP já está esperando por você. Se preferir, também podemos conversar por
+          aqui.
+        </p>
+        <a href="https://wa.me/5511956586000"
+          >Conversar no WhatsApp <span aria-hidden="true">→</span></a
+        >
+      </section>
+      <button
+        id="wa-toggle"
+        class="wa-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="wa-painel"
+      >
+        <svg class="wa-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M20.4 3.6A11.2 11.2 0 0 0 3.3 17.7L2 22l4.5-1.2A11.2 11.2 0 1 0 20.4 3.6Z"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M8.4 7.7c.2-.5.5-.5.8-.5h.5c.2 0 .5.1.6.6l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.1.5.1.7.5.8 1.3 1.5 2.1 2.1.2.1.5.2.7 0l.8-.9c.2-.2.4-.2.7-.1l1.7.8c.5.2.6.4.6.7v.5c0 .3-.2.6-.6.8-.6.3-1.6.5-3.6-.4-1.3-.6-2.6-1.7-3.8-3-1.1-1.3-2-2.6-2.3-3.7-.3-1.1-.1-1.6.1-2.1Z"
+            fill="currentColor"
+          /></svg
+        ><span class="sr-only">Abrir mensagem da Vinoteca no WhatsApp</span>
+        <span id="wa-badge" class="wa-badge" aria-label="1 mensagem não lida">1</span>
+      </button>
+    </div>
   </body>
 </html>
