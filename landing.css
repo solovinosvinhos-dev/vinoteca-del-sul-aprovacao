@@ -314,36 +314,90 @@
     }
   }
 }
-@media (max-width: 900px) and (min-width: 681px) {
+@media (min-width: 681px) {
+  .v-letter {
+    display: grid;
+    align-content: center;
+    grid-template-columns: minmax(0, 73rem);
+    justify-content: center;
+  }
+  .v-mast,
+  .v-book,
+  .v-colophon {
+    width: 100%;
+  }
+  .v-mast {
+    padding-block: clamp(0.65rem, 2svh, 1.2rem);
+  }
+  .v-signature {
+    font-size: clamp(1.65rem, 2.4vw, 2.1rem);
+  }
+  .v-signature img,
+  .v-seal {
+    width: 2.5rem;
+  }
   .v-book {
-    grid-template-columns: 34% 48% 18%;
+    grid-template-columns: 31% 48% 21%;
   }
   .v-index,
   .v-pages section {
-    padding: 1.65rem;
+    padding: clamp(1rem, 3.4svh, 2rem) clamp(1.25rem, 2.6vw, 2.4rem);
   }
   .v-index h1 {
-    font-size: clamp(3.1rem, 6.2vw, 4.3rem);
+    margin-block: clamp(1rem, 3.2svh, 1.8rem);
+    font-size: clamp(2.75rem, 4.1vw, 3.5rem);
+    line-height: 0.95;
+    text-wrap: balance;
   }
-}
-@media (min-width: 681px) {
+  .v-index nav a {
+    font-size: 1.3rem;
+    padding-block: 0.3em;
+  }
   .v-pages section {
-    padding-inline: clamp(1.65rem, 2.85vw, 3.5rem);
+    min-height: min(30rem, calc(100svh - 7.5rem));
   }
   .v-pages h2 {
-    margin-bottom: 0.32em;
+    font-size: clamp(2.6rem, 5.8svh, 3.65rem);
+    margin-bottom: 0.3em;
   }
   .v-pages p {
-    max-width: 38ch;
-    font-size: clamp(1.35rem, 1.85vw, 1.85rem);
+    max-width: 44ch;
+    font-size: clamp(1.2rem, 1.55vw, 1.4rem);
     line-height: 1.3;
     text-wrap: pretty;
   }
   .v-pages p + p {
-    margin-top: 0.9em;
-    max-width: 48ch;
-    font-size: clamp(1.2rem, 1.5vw, 1.5rem);
-    line-height: 1.45;
+    margin-top: 0.65em;
+    max-width: 54ch;
+    font-size: clamp(1.1rem, 1.3vw, 1.2rem);
+    line-height: 1.4;
+  }
+  .v-tool,
+  .v-photo {
+    height: clamp(4rem, 13svh, 7.5rem);
+    margin-block: 0.6rem;
+  }
+  .v-address {
+    margin-block: 0.75rem;
+  }
+  .v-address a {
+    padding-block: 0.6rem;
+    font-size: 1.25rem;
+  }
+  .v-address small {
+    margin-top: 0.2rem;
+  }
+  .v-turn {
+    font-size: 1.2rem;
+  }
+  .v-colophon {
+    padding-block: clamp(0.65rem, 2svh, 1.2rem);
+    font-size: 1.05rem;
+  }
+}
+@media (min-width: 681px) and (max-width: 900px) {
+  .v-book {
+    grid-template-columns: 31% 55% 14%;
   }
 }
 @media (max-width: 680px) {
