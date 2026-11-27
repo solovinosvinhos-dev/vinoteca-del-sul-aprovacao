@@ -32,8 +32,11 @@ function normalize(body) {
 }
 
 const gateway = "https://qrwfkpczlndcgzglhcke.supabase.co/functions/v1/vinoteca-lista-vip";
-const publicOrigin =
-  process.env.VINOTECA_PUBLIC_ORIGIN || "https://vinoteca-del-sul-aprovacao.vercel.app";
+const publicOrigins = new Set([
+  "https://www.vinotecadelsul.com.br",
+  "https://vinoteca-del-sul-aprovacao.vercel.app",
+  process.env.VINOTECA_PUBLIC_ORIGIN,
+]);
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "private, no-store");
@@ -43,8 +46,8 @@ export default async function handler(req, res) {
     res.setHeader("Allow", "GET, POST");
     return send(405, { error: "method" });
   }
-  const live =
-    process.env.VERCEL_ENV === "production" && "https://" + req.headers.host === publicOrigin;
+  const publicOrigin = "https://" + req.headers.host;
+  const live = process.env.VERCEL_ENV === "production" && publicOrigins.has(publicOrigin);
   if (!live)
     return req.method === "GET" ? send(200, { mode: "preview" }) : send(403, { error: "preview" });
   const oidc = req.headers["x-vercel-oidc-token"];

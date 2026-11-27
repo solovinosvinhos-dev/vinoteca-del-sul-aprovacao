@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.vinotecadelsul.com.br"
+        }
+      ],
+      "destination": "/lista-vip/",
+      "permanent": false
+    }
+  ]
+}
